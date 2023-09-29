@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VOWELS_ARR</title>
+  </head>
+  <body>
+    <script>
+      const question = prompt("Введите строку:");
+
+      function words(data) {
+        const formated = data.toLowerCase();
+        let vowels = "аоиеёэыуюя";
+        let count = 0;
+        [...formated].forEach((formated) => {
+          if (vowels.includes(formated)) ++count;
+        });
+        return count;
+      }
+
+      function words2(data) {
+        const formated = data.toLowerCase();
+        let vowels = "аоиеёэыуюя";
+        let count = [...formated].filter((element) =>
+          vowels.includes(element)
+        ).length;
+        return count;
+      }
+
+      function words3(data) {
+        const formated = data.toLowerCase();
+        let vowels = "аоиеёэыуюя";
+        let count = [...formated].reduce(
+          (a, b) => (vowels.includes(b) ? a + 1 : a),
+          0
+        );
+        return count;
+      }
+
+      console.log(words(question));
+      console.log(words2(question));
+      console.log(words3(question));
+    </script>
+  </body>
+</html>
